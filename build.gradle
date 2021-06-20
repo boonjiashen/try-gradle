@@ -17,3 +17,17 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// How is this different from `task helloWorld { doLast {...} }`?
+tasks.register("hello-world") {
+    doLast {
+        println "Hello world!"
+    }
+}
+
+task helloWorld2 {
+    dependsOn("hello-world")
+    doLast {
+        println "Hello world 2!"
+    }
+}
